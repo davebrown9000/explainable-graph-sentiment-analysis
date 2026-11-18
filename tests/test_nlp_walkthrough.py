@@ -33,7 +33,7 @@ class NLPWalkthroughTests(unittest.TestCase):
     def test_projection_tracks_fictional_situations(self):
         report = analyse(REVIEWS)
         self.assertEqual(report["review_count"], 5)
-        self.assertEqual(len(report["feature_rows"]), 7)
+        self.assertEqual(len(report["feature_rows"]), 8)
         self.assertTrue(report["jaccard_projection"])
 
     def test_duplicate_review_ids_rejected(self):
