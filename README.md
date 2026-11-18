@@ -6,7 +6,7 @@ Customer feedback can contain several opinions about different product features 
 
 The original MSc research integrates **spaCy-based NLP and governed feature extraction**, a **VADER sentence-level baseline**, **pretrained PyABSA aspect-polarity classification**, **contextual situation attribution**, **weighted bipartite feature–situation networks**, **Jaccard projection**, **Louvain community detection** and **association-rule mining**. The contribution lies in **representation design and interpretability**, not a newly trained neural network or a claim to infer causation.
 
-> **Publication boundary:** The results below are from the completed research. This repository contains independently written explanatory documentation, a newly drawn aggregate figure and a deliberately small **synthetic** graph example. It does not distribute the original research implementation, review corpus, manual corrections, notebooks, pretrained weights or original Git history.
+> **Publication boundary:** The results below are from the completed research. This repository contains independently written explanatory documentation, a newly drawn aggregate figure and two deliberately small **synthetic** examples: a graph projection and an NLP-to-graph walkthrough. It does not distribute the original research implementation, review corpus, manual corrections, notebooks, pretrained weights or original Git history.
 
 ## Research question
 
@@ -61,18 +61,19 @@ These are **documented stages of the original research**, not features implement
 
 The graph analysis placed **Camera** first by weighted strength (8.248) in the filtered feature-family projection. The pattern reflects shared *attributed situations* rather than direct product-feature similarity. [Findings and interpretation](docs/findings.md) include the key counts, centralities, association rules, cautions and diagnostic lessons.
 
-## Minimal synthetic graph demonstration
+## Independent synthetic demonstrations
 
-This public code illustrates **only a small deterministic graph concept**. From invented feature–situation observations, it builds binary incidence sets and calculates the pairwise Jaccard overlap of situation neighbours. It does **not** run PyABSA, carry out NLP extraction, build the full weighted research network, detect Louvain communities, mine association rules or reproduce dissertation results.
+The original **graph example** builds binary incidence sets from invented feature–situation observations and calculates pairwise Jaccard overlap. The new [fictional NLP-to-graph walkthrough](docs/synthetic-nlp-walkthrough.md) additionally demonstrates review/clause lineage, simple exact feature matching, traceable keyword cues, unknown-classification handling and a Jaccard projection. The walkthrough uses **toy string heuristics**, not spaCy, VADER, PyABSA or the original situation rules. Neither example reproduces dissertation results or runs community detection and association-rule mining.
 
 Python **3.11+**, standard library only:
 
 ```bash
 python3 -m demo.graph_example
+python3 -m demo.nlp_walkthrough
 python3 -m unittest discover -s tests -v
 ```
 
-The included five unit tests apply to this synthetic graph example alone. No external downloads, review data, credentials or model weights are required.
+Five original tests cover the graph example, and nine additional tests cover the fictional NLP walkthrough. No external downloads, review data, credentials or model weights are required. The new tests have not yet been executed in a Python runtime; their source is published for review.
 
 ## Engineering decisions and technical evidence
 
